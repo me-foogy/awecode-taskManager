@@ -6,9 +6,11 @@
 
 :root{
     --button-background: #92aa83;
+    --button-background-hover: #C5D89D;
     --body-background: #f1f7ee;
     --text-color-dark: #332e3c;
-    --button-background-red: #F96E5B;
+    --button-background-red: #FF5555;
+    --button-background-red-hover: #FF937E;
     --text-white: #f1f7ee;
 }
 
@@ -131,9 +133,17 @@ body{
     flex-shrink: 0;
 }
 
+.start-btn:hover, .complete-btn:hover {
+    background-color: var(--button-background-hover);
+}
+
 .delete-btn{
     background-color: var(--button-background-red);
     color: white;
+}
+
+.delete-btn:hover{
+    background-color: var(--button-background-red-hover);
 }
 
 @media screen and (max-width: 1200px){

@@ -1,0 +1,152 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --button-background: #92aa83;
+    --body-background: #f1f7ee;
+    --text-color-dark: #332e3c;
+    --button-background-red: #F96E5B;
+    --text-white: #f1f7ee;
+}
+
+body{
+    padding: 0 8rem;
+    background-color: var(--body-background);
+    color: var(--text-color-dark);
+    font-family: "Rubik", sans-serif;
+}
+
+#header{
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+#header h4{
+    font-size: 1.5rem;
+    color: var(--text-color-dark);
+}
+
+.button-design{
+    padding: 0.5rem 1rem;
+    background-color: var(--button-background);
+    color: var(--text-color-dark);
+    border-radius: 0.6rem;
+    cursor: pointer;
+}
+
+.add-section{
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border-radius: 0.5rem;
+    border: 0.2rem solid var(--button-background);
+    padding: 1rem;
+    background-color: white;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    display: none;
+}
+
+.add-task-input{
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+  font-weight: 500; 
+}
+
+.task-input{
+    padding: 0.4rem 0.5rem;
+    border: 0.1rem solid;
+    border-radius: 0.5rem;
+    border-color: var(--button-background);
+    background-color: var(--body-background);
+}
+
+.date-input{
+    padding: 0.4rem 0.5rem;
+    border: 0.1rem solid;
+    border-radius: 0.5rem;
+    border-color: var(--button-background);
+    background-color: var(--body-background);
+}
+
+.task-section{
+    margin: 3rem 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    width: 100%;
+}
+
+.section-1, .section-2, .section-3{
+    border-radius: 1rem;
+    border: 0.2rem solid var(--button-background);
+    padding: 1rem;
+    min-height: 0;
+}
+
+.section-1 h2, .section-2 h2, .section-3 h2{
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.section-1 p, .section-2 p, .section-3 p{
+   overflow-wrap: break-word;
+   word-break: break-all;
+}
+
+.card{
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.card-title{
+    font-size: 1.5rem;
+    text-align: start  ;
+}
+
+.card-date{
+    margin: 0.4rem 0;
+    font-size: 0.8rem;
+    text-align: start;
+}
+
+.card-button{
+    padding: 0.5rem 1rem;
+    background-color: var(--button-background);
+    color: var(--text-color-dark);
+    border-radius: 0.6rem;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.delete-btn{
+    background-color: var(--button-background-red);
+    color: white;
+}
+
+@media screen and (max-width: 1200px){
+
+    body{
+        padding: 0 2rem;
+    }
+
+    .task-section{
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .task-section{
+        margin: 1rem 0;
+    }
+}

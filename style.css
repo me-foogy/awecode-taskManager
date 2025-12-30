@@ -85,6 +85,8 @@ body{
 }
 
 .section-1, .section-2, .section-3{
+    display: flex;
+    flex-direction: column;
     border-radius: 1rem;
     border: 0.2rem solid var(--button-background);
     padding: 1rem;
@@ -99,6 +101,22 @@ body{
 .section-1 p, .section-2 p, .section-3 p{
    overflow-wrap: break-word;
    word-break: break-all;
+}
+
+.section-1-content, .section-2-content, .section-3-content{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.empty-section{
+    text-align: center;
+    align-self: cente;
+    flex: 1;
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .card{

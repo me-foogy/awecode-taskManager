@@ -1,5 +1,5 @@
 "use strict";
-//Fetch each element from the local storage
+//<!TODO> - Fetch everything from local storage
 const remainingTasks = [
     { title: 'Example Task 1', date: '2025-12-20' },
     { title: 'Example Task 2', date: '2025-12-20' }
@@ -24,20 +24,28 @@ function renderRemainingTasks() {
         ...eachTask,
         id: index
     }));
-    remainingTasksWithId.forEach(eachTask => {
+    if (remainingTasksWithId.length === 0) {
         let content = document.createElement('div');
-        content.innerHTML =
-            `<div class="card-text">
-                    <p class="card-title">${eachTask.title}</p>
-                    <p class="card-date">Date: ${eachTask.date}</p>
-                    </div>
-                    <button class="card-button start-btn">Start Task</button>`;
-        content.setAttribute('class', "card");
-        content.querySelector('.start-btn')?.addEventListener('click', () => {
-            startTask(eachTask.id);
+        content.innerHTML = '<p>No Remaining Tasks</p><p>Add A New Task To Schedule It</p>';
+        content.setAttribute('class', 'empty-section');
+        section1.appendChild(content);
+    }
+    else {
+        remainingTasksWithId.forEach(eachTask => {
+            let content = document.createElement('div');
+            content.innerHTML =
+                `<div class="card-text">
+                        <p class="card-title">${eachTask.title}</p>
+                        <p class="card-date">Date: ${eachTask.date}</p>
+                        </div>
+                        <button class="card-button start-btn">Start Task</button>`;
+            content.setAttribute('class', "card");
+            content.querySelector('.start-btn')?.addEventListener('click', () => {
+                startTask(eachTask.id);
+            });
+            section1?.appendChild(content);
         });
-        section1?.appendChild(content);
-    });
+    }
 }
 function renderOngoingTasks() {
     if (!section2)
@@ -48,20 +56,28 @@ function renderOngoingTasks() {
         ...eachTask,
         id: index
     }));
-    ongoingTasksWithId.forEach(eachTask => {
+    if (ongoingTasksWithId.length === 0) {
         let content = document.createElement('div');
-        content.innerHTML =
-            `<div class="card-text">
-                    <p class="card-title">${eachTask.title}</p>
-                    <p class="card-date">Date: ${eachTask.date}</p>
-                    </div>
-                    <button class="card-button complete-btn">Complete Task</button>`;
-        content.setAttribute('class', "card");
-        content.querySelector('.complete-btn')?.addEventListener('click', () => {
-            completeTask(eachTask.id);
+        content.innerHTML = '<p>No Ongoing Tasks</p><p>Select A Task To Start Working</p>';
+        content.setAttribute('class', 'empty-section');
+        section2.appendChild(content);
+    }
+    else {
+        ongoingTasksWithId.forEach(eachTask => {
+            let content = document.createElement('div');
+            content.innerHTML =
+                `<div class="card-text">
+                        <p class="card-title">${eachTask.title}</p>
+                        <p class="card-date">Date: ${eachTask.date}</p>
+                        </div>
+                        <button class="card-button complete-btn">Complete Task</button>`;
+            content.setAttribute('class', "card");
+            content.querySelector('.complete-btn')?.addEventListener('click', () => {
+                completeTask(eachTask.id);
+            });
+            section2?.appendChild(content);
         });
-        section2?.appendChild(content);
-    });
+    }
 }
 function renderCompletedTasks() {
     if (!section3)
@@ -72,20 +88,28 @@ function renderCompletedTasks() {
         ...eachTask,
         id: index
     }));
-    completedTasksWithId.forEach(eachTask => {
+    if (completedTasksWithId.length === 0) {
         let content = document.createElement('div');
-        content.innerHTML =
-            `<div class="card-text">
-                    <p class="card-title">${eachTask.title}</p>
-                    <p class="card-date">Date: ${eachTask.date}</p>
-                    </div>
-                    <button class="card-button delete-btn">Delete Task</button>`;
-        content.setAttribute('class', "card");
-        content.querySelector('.delete-btn')?.addEventListener('click', () => {
-            deleteTask(eachTask.id);
+        content.innerHTML = '<p>No Tasks Completed</p><p>Completed Task Appear Here</p>';
+        content.setAttribute('class', 'empty-section');
+        section3.appendChild(content);
+    }
+    else {
+        completedTasksWithId.forEach(eachTask => {
+            let content = document.createElement('div');
+            content.innerHTML =
+                `<div class="card-text">
+                        <p class="card-title">${eachTask.title}</p>
+                        <p class="card-date">Date: ${eachTask.date}</p>
+                        </div>
+                        <button class="card-button delete-btn">Delete Task</button>`;
+            content.setAttribute('class', "card");
+            content.querySelector('.delete-btn')?.addEventListener('click', () => {
+                deleteTask(eachTask.id);
+            });
+            section3?.appendChild(content);
         });
-        section3?.appendChild(content);
-    });
+    }
 }
 //button functions
 function startTask(taskId) {

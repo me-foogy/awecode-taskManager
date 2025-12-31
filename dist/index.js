@@ -1,9 +1,5 @@
 "use strict";
-//<!TODO> - Fetch everything from local storage
-const remainingTasks = [
-    { title: 'Example Task 1', date: '2025-12-20' },
-    { title: 'Example Task 2', date: '2025-12-20' }
-];
+const remainingTasks = [];
 const ongoingTasks = [
     { title: 'Example Task 3', date: '2025-12-20' },
     { title: 'Example Task 4', date: '2025-12-20' }
@@ -164,6 +160,16 @@ function handleAddTask(e) {
         let today = new Date;
         date = today.toISOString().slice(0, 10);
         console.log(date);
+    }
+    //validation of inputs using regular expressions
+    if (!title) {
+        alert('Task field cannot be empty');
+        return;
+    }
+    const datePattern = /^\d{4}\-\d{2}\-\d{2}$/;
+    if (!datePattern.test(date)) {
+        alert('The date format must be in yyyy-mm-dd format');
+        return;
     }
     const task = {
         title: title,

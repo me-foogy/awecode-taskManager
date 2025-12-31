@@ -90,6 +90,7 @@ body{
     border-radius: 1rem;
     border: 0.2rem solid var(--button-background);
     padding: 1rem;
+    min-width: 0;
     min-height: 0;
 }
 
@@ -99,8 +100,8 @@ body{
 }
 
 .section-1 p, .section-2 p, .section-3 p{
-   overflow-wrap: break-word;
-   word-break: break-all;
+   overflow-wrap: anywhere;
+   word-break: normal;
 }
 
 .section-1-content, .section-2-content, .section-3-content{
@@ -133,7 +134,7 @@ body{
 
 .card-title{
     font-size: 1.5rem;
-    text-align: start  ;
+    text-align: start;
 }
 
 .card-date{

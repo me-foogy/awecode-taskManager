@@ -113,7 +113,6 @@ function renderCompletedTasks() {
 }
 //button functions
 function startTask(taskId) {
-    console.log('Checking if the id is passing', taskId);
     const task = remainingTasks[taskId];
     ongoingTasks.push(task);
     remainingTasks.splice(taskId, 1);
@@ -121,7 +120,6 @@ function startTask(taskId) {
     renderOngoingTasks();
 }
 function completeTask(taskId) {
-    console.log('Completing the task', taskId);
     const task = ongoingTasks[taskId];
     completedTasks.push(task);
     ongoingTasks.splice(taskId, 1);
@@ -129,7 +127,6 @@ function completeTask(taskId) {
     renderCompletedTasks();
 }
 function deleteTask(taskId) {
-    console.log('deleting the task', taskId);
     completedTasks.splice(taskId, 1);
     renderCompletedTasks();
 }
@@ -162,7 +159,12 @@ function handleAddTask(e) {
     const formData = new FormData(form);
     form.reset();
     const title = formData.get("title");
-    const date = formData.get("date");
+    let date = formData.get("date");
+    if (!date) {
+        let today = new Date;
+        date = today.toISOString().slice(0, 10);
+        console.log(date);
+    }
     const task = {
         title: title,
         date: date
